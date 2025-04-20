@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Materia</title>
+  <link rel="stylesheet" href="../css/agregar_materia.css">
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h2>📘 Registro de Cursos</h2>
+      <form id="formMateria" method="POST" action="../php/agregar_materia.php">
+        <label for="nombre">Nombre del curso:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <button type="submit">Agregar Materia</button>
+      </form>
+      <p id="mensaje" class="mensaje"></p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('formMateria').addEventListener('submit', function (e) {
+      const nombre = document.getElementById('nombre').value.trim();
+      if (nombre === "") {
+        e.preventDefault();
+        document.getElementById('mensaje').textContent = "El nombre del curso no puede estar vacío.";
+        document.getElementById('mensaje').style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

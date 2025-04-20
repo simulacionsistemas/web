@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiantes</title>
+  <link rel="stylesheet" href="..//css/agregar_estudiante.css">
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h2>📚 Registro de Estudiantes</h2>
+      <form id="formulario" method="POST" action="../php/agregar_estudiantes.php">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="curso">Curso:</label>
+        <input type="text" id="curso" name="curso" required>
+
+        <button type="submit">Agregar Estudiante</button>
+      </form>
+      <p id="mensaje" class="mensaje"></p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      const nombre = document.getElementById('nombre').value.trim();
+      const curso = document.getElementById('curso').value.trim();
+      if (!nombre || !curso) {
+        e.preventDefault();
+        document.getElementById('mensaje').textContent = "Todos los campos son obligatorios.";
+        document.getElementById('mensaje').style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

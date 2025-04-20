@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscribir Estudiante</title>
+  <link rel="stylesheet" href="../css/inscribir_estudiante.css">
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h2>📝 Inscribir Estudiante</h2>
+      <form method="POST" action="../php/inscribir_estudiante.php">
+        <label for="estudiante_id">Estudiante:</label>
+        <select name="estudiante_id" required>
+          <?php foreach ($estudiantes as $estudiante) { ?>
+            <option value="<?= $estudiante['ID']; ?>"><?= $estudiante['nombre']; ?></option>
+          <?php } ?>
+        </select>
+
+        <label for="materia_codigo">Materia:</label>
+        <select name="materia_codigo" required>
+          <?php foreach ($materias as $materia) { ?>
+            <option value="<?= $materia['codigo']; ?>"><?= $materia['nombre']; ?></option>
+          <?php } ?>
+        </select>
+
+        <label for="fecha_inscripcion">Fecha de inscripción:</label>
+        <input type="date" name="fecha_inscripcion" required>
+
+        <button type="submit">Inscribir Estudiante</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
